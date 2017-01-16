@@ -1,0 +1,6 @@
+com\milo\springMvcTest\controller\CourseController.class
+com\milo\springMvcTest\service\CourseService.class
+com\milo\springMvcTest\model\Chapter.class
+com\milo\springMvcTest\model\Course.class
+com\milo\springMvcTest\service\impl\CourseServiceImpl.class
+com\milo\springMvcTest\controller\HelloMvcController.class
