@@ -29,8 +29,25 @@
   	<property name="prefix" value="/WEB-INF/jsps/" />
   	<property name="suffix" value=".jsp" />
   </bean> -->
+  
+  <bean id="contentNegotiatingViewResolver" class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver" >
+	<property name="order" value="1"></property>
+	<property name="mediaTypes">
+	  <map>
+	  	<entry key="json" value="application/json"></entry>
+	  	<entry key="xml" value="application/xml"></entry>
+	  	<entry key="htm" value="text/html"></entry>
+	  </map>
+	</property>
+	<property name="defaultViews">
+	  <list>
+	  	<bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"></bean>
+	  </list>
+	</property>
+	<property name="ignoreAcceptHeader" value="true"></property>
+  </bean>
 	
-  <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+  <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
 	<property name="viewClass">
 	  <value>org.springframework.web.servlet.view.JstlView</value>
 	</property>
@@ -40,5 +57,12 @@
 	<property name="suffix">
 	  <value>.jsp</value>
 	</property>
+  </bean>
+  
+  <!-- 200*1024*1024 resolveLazily属性启用时为了推迟文件解析，一边补货文件大小异常 -->
+  <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+  	<property name="maxUploadSize" value="209715200"></property>
+  	<property name="defaultEncoding" value="UTF-8"></property>
+  	<property name="resolveLazily" value="true"></property>
   </bean>
 </beans>

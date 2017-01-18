@@ -3,11 +3,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Operator Success</title>
 </head>
 <body>
-Hello Spring MVC! Here is Milo Project!
-<br >
-It start a spring mvc project
+<div style="text-align:center;color:green;padding: 10px;font-size: 20px;">success</div>
 </body>
 </html>
